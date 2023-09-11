@@ -17,6 +17,7 @@ import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ShatterproofEnchantment extends Enchantment {
@@ -30,7 +31,7 @@ public class ShatterproofEnchantment extends Enchantment {
 
 	@SubscribeEvent
 	public void onItemUse(LivingEntityUseItemEvent.Start event) {
-		if (!event.getEntity().getLevel().isClientSide()) {
+		if (!event.getEntity().level().isClientSide()) {
 			ItemStack stack = event.getItem();
 			if (stack != null) {
 				event.setCanceled(protectItem(stack));
@@ -54,22 +55,22 @@ public class ShatterproofEnchantment extends Enchantment {
 		ItemStack stack = event.getTo();
 		if (stack != null) {
 			if (protectItem(stack)) {
-				event.setCanceled(true);
+				event.setResult(Event.Result.DENY);
 			}
 		}
 	}
 
 	@SubscribeEvent
 	public void onEntityHurt(LivingHurtEvent event) {
-		if (!event.getEntity().getLevel().isClientSide()) {
+		if (!event.getEntity().level().isClientSide()) {
 			Entity entity = event.getEntity();
 			for (ItemStack armorSlot : entity.getArmorSlots()) {
 				if (protectItem(armorSlot)) {
 					if (entity instanceof ServerPlayer player) {
 						if (!player.getInventory().add(armorSlot)) {
-							ItemEntity itemEntity = new ItemEntity(player.level, player.getX(),
+							ItemEntity itemEntity = new ItemEntity(player.level(), player.getX(),
 								player.getY(), player.getZ(), armorSlot);
-							player.level.addFreshEntity(itemEntity);
+							player.level().addFreshEntity(itemEntity);
 							player.getInventory().removeItem(armorSlot);
 						}
 					}
@@ -80,7 +81,7 @@ public class ShatterproofEnchantment extends Enchantment {
 
 	@SubscribeEvent
 	public void onAttackEntity(AttackEntityEvent event) {
-		if (!event.getEntity().getLevel().isClientSide()) {
+		if (!event.getEntity().level().isClientSide()) {
 			ItemStack stack = event.getEntity().getMainHandItem();
 			if (stack != null) {
 				if (protectItem(stack)) {
@@ -92,7 +93,7 @@ public class ShatterproofEnchantment extends Enchantment {
 
 	@SubscribeEvent
 	public void onShieldDefend(ShieldBlockEvent event) {
-		if (!event.getEntity().getLevel().isClientSide()) {
+		if (!event.getEntity().level().isClientSide()) {
 			ItemStack stack = event.getEntity().getUseItem();
 			if (stack != null) {
 				if (protectItem(stack)) {

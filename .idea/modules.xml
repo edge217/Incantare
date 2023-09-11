@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IdeaProjects.Incantare.test.iml" filepath="$PROJECT_DIR$/.idea/modules/IdeaProjects.Incantare.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Incantare.iml" filepath="$PROJECT_DIR$/.idea/modules/Incantare.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Incantare.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Incantare.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Incantare.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Incantare.test.iml" />
