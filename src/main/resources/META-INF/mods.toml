@@ -42,7 +42,7 @@ displayName = "Incantare" #mandatory
 
 # The description text for the mod (multi line!) (#mandatory)
 description = '''
-Adds an Unusing enchantment that makes it so that items do not break
+Adds a variety of random enchantments
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.incantare]] #optional
