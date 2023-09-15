@@ -1,10 +1,10 @@
 package com.edgeburnmedia.incantare.incantare;
 
 import com.edgeburnmedia.incantare.incantare.enchantment.ShatterproofEnchantment;
+import com.edgeburnmedia.incantare.incantare.enchantment.ExperienceProficiencyEnchantment;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -26,9 +26,6 @@ public class Incantare {
 	public static final String MODID = "incantare";
 	// Directly reference a slf4j logger
 	private static final Logger LOGGER = LogUtils.getLogger();
-	// Create a Deferred Register to hold Blocks which will all be registered under the "Incantare" namespace
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(
-		ForgeRegistries.BLOCKS, MODID);
 	// Create a Deferred Register to hold Items which will all be registered under the "Incantare" namespace
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(
 		ForgeRegistries.ITEMS, MODID);
@@ -38,6 +35,8 @@ public class Incantare {
 
 	public static final RegistryObject<Enchantment> SHATTERPROOF_ENCHANTMENT = ENCHANTMENTS.register("shatterproof",
 		ShatterproofEnchantment::new);
+
+	public static final RegistryObject<Enchantment> EXPERIENCE_PROFICIENCY = ENCHANTMENTS.register("experience_proficiency", ExperienceProficiencyEnchantment::new);
 
 	public Incantare() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
