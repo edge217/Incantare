@@ -1,4 +1,8 @@
 {
   "enchantment.incantare.shatterproof": "Shatterproof",
-  "enchantment.incantare.shatterproof.desc": "Prevents the item from being destroyed when it is broken."
+  "enchantment.incantare.shatterproof.desc": "Prevents the item from being destroyed when it is broken.",
+  "enchantment.incantare.grounding": "Grounding",
+  "enchantment.incantare.grounding.desc": "Prevents you from getting the levitation effect",
+  "enchantment.incantare.experience_proficiency": "Experience Proficiency",
+  "enchantment.incantare.experience_proficiency.desc": "Gives you more experience for breaking blocks"
 }

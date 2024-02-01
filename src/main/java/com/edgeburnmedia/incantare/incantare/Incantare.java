@@ -1,5 +1,7 @@
 package com.edgeburnmedia.incantare.incantare;
 
+import com.edgeburnmedia.incantare.incantare.enchantment.ExperienceProficiencyEnchantment;
+import com.edgeburnmedia.incantare.incantare.enchantment.GroundingEnchantment;
 import com.edgeburnmedia.incantare.incantare.enchantment.ShatterproofEnchantment;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.Item;
@@ -38,6 +40,8 @@ public class Incantare {
 
 	public static final RegistryObject<Enchantment> SHATTERPROOF_ENCHANTMENT = ENCHANTMENTS.register("shatterproof",
 		ShatterproofEnchantment::new);
+	public static final RegistryObject<Enchantment> EXPERIENCE_PROFICIENCY_ENCHANTMENT = ENCHANTMENTS.register("experience_proficiency", ExperienceProficiencyEnchantment::new);
+	public static final RegistryObject<Enchantment> GROUNDING_ENCHANTMENT = ENCHANTMENTS.register("grounding", GroundingEnchantment::new);
 
 	public Incantare() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
